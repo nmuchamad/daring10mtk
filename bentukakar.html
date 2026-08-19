@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operasi Hitung Bilangan Bentuk Akar | Matematika Kelas 10</title>
+  <meta name="description" content="Bahan ajar interaktif Matematika Fase E Kelas 10 tentang Operasi Hitung Bilangan Bentuk Akar.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-dark: #3730a3;
+      --secondary: #06b6d4;
+      --success: #16a34a;
+      --success-bg: #dcfce7;
+      --danger: #dc2626;
+      --danger-bg: #fee2e2;
+      --warning: #d97706;
+      --warning-bg: #fef3c7;
+      --text: #1e293b;
+      --muted: #64748b;
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --shadow: 0 10px 30px rgba(15, 23, 42, .08);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(79, 70, 229, .10), transparent 30%),
+        radial-gradient(circle at bottom left, rgba(6, 182, 212, .08), transparent 25%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    .container {
+      width: min(1080px, calc(100% - 32px));
+      margin: auto;
+    }
+
+    /* HEADER */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 55px 0 45px;
+      color: white;
+      background: linear-gradient(135deg, #4338ca, #4f46e5 50%, #0891b2);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,.08);
+    }
+
+    .hero::before {
+      width: 300px;
+      height: 300px;
+      right: -80px;
+      top: -120px;
+    }
+
+    .hero::after {
+      width: 220px;
+      height: 220px;
+      left: -90px;
+      bottom: -130px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 13px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      font-size: .85rem;
+      font-weight: 600;
+      backdrop-filter: blur(8px);
+    }
+
+    h1 {
+      font-family: "Poppins", sans-serif;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1.2;
+      margin-bottom: 15px;
+    }
+
+    .hero-subtitle {
+      max-width: 750px;
+      font-size: 1.05rem;
+      opacity: .92;
+      margin-bottom: 25px;
+    }
+
+    .hero-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .info-pill {
+      padding: 9px 14px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.13);
+      border: 1px solid rgba(255,255,255,.18);
+      font-size: .9rem;
+    }
+
+    /* NAVIGATION */
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      padding: 10px 0;
+    }
+
+    .tab-btn {
+      flex: 1;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    .tab-btn:hover {
+      background: #eef2ff;
+      color: var(--primary);
+    }
+
+    .tab-btn.active {
+      color: white;
+      background: var(--primary);
+      box-shadow: 0 5px 14px rgba(79,70,229,.25);
+    }
+
+    /* MAIN */
+    main {
+      padding: 32px 0 60px;
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn .35s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-title {
+      font-family: "Poppins", sans-serif;
+      font-size: 1.7rem;
+      margin-bottom: 8px;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 25px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      font-family: "Poppins", sans-serif;
+      font-size: 1.2rem;
+      margin-bottom: 13px;
+    }
+
+    .concept-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .highlight {
+      padding: 20px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, #eef2ff, #ecfeff);
+      border-left: 5px solid var(--primary);
+      margin: 18px 0;
+    }
+
+    .highlight strong {
+      color: var(--primary-dark);
+    }
+
+    .formula {
+      display: inline-block;
+      padding: 10px 16px;
+      margin: 7px 0;
+      border-radius: 10px;
+      background: #f1f5f9;
+      font-family: "Times New Roman", serif;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .example {
+      padding: 18px;
+      margin-top: 15px;
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      border-radius: 14px;
+    }
+
+    .example-title {
+      color: var(--primary);
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    ul {
+      padding-left: 22px;
+    }
+
+    li {
+      margin: 5px 0;
+    }
+
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      padding: 0;
+    }
+
+    .steps li {
+      counter-increment: step;
+      position: relative;
+      padding: 12px 15px 12px 48px;
+      margin: 10px 0;
+      background: #f8fafc;
+      border-radius: 12px;
+    }
+
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 12px;
+      top: 10px;
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: white;
+      background: var(--primary);
+      font-weight: 700;
+      font-size: .8rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    th, td {
+      padding: 13px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background: #eef2ff;
+      color: var(--primary-dark);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .fun-fact {
+      background: linear-gradient(135deg, #fff7ed, #fefce8);
+      border-left: 5px solid #f59e0b;
+    }
+
+    /* QUIZ */
+    .progress-container {
+      margin-bottom: 25px;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: .9rem;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+
+    .progress-bar {
+      height: 9px;
+      overflow: hidden;
+      background: #e2e8f0;
+      border-radius: 99px;
+    }
+
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: inherit;
+      transition: width .3s ease;
+    }
+
+    .question-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .question-number {
+      display: inline-block;
+      padding: 5px 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      color: var(--primary-dark);
+      background: #eef2ff;
+      font-size: .8rem;
+      font-weight: 800;
+    }
+
+    .question-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .options {
+      display: grid;
+      gap: 10px;
+    }
+
+    .option {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 13px 15px;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      background: white;
+      text-align: left;
+      color: var(--text);
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    .option:hover:not(.disabled) {
+      border-color: #a5b4fc;
+      background: #f8faff;
+      transform: translateX(2px);
+    }
+
+    .option.correct {
+      border-color: var(--success);
+      background: var(--success-bg);
+      color: #166534;
+    }
+
+    .option.wrong {
+      border-color: var(--danger);
+      background: var(--danger-bg);
+      color: #991b1b;
+    }
+
+    .option.disabled {
+      cursor: default;
+    }
+
+    .option-letter {
+      min-width: 29px;
+      height: 29px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #f1f5f9;
+      font-weight: 800;
+      font-size: .85rem;
+    }
+
+    .feedback {
+      display: none;
+      margin-top: 15px;
+      padding: 15px;
+      border-radius: 12px;
+      font-size: .92rem;
+    }
+
+    .feedback.show {
+      display: block;
+    }
+
+    .feedback.correct {
+      background: var(--success-bg);
+      color: #166534;
+    }
+
+    .feedback.wrong {
+      background: var(--danger-bg);
+      color: #991b1b;
+    }
+
+    .answer-input {
+      width: 100%;
+      min-height: 100px;
+      resize: vertical;
+      padding: 14px;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      outline: none;
+      font: inherit;
+      color: var(--text);
+    }
+
+    .answer-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(79,70,229,.1);
+    }
+
+    .rubric {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 12px;
+      padding: 13px 20px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    .btn-primary {
+      color: white;
+      background: var(--primary);
+      box-shadow: 0 6px 15px rgba(79,70,229,.2);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      color: var(--primary-dark);
+      background: #eef2ff;
+    }
+
+    .btn-secondary:hover {
+      background: #e0e7ff;
+    }
+
+    .quiz-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    .score-card {
+      display: none;
+      text-align: center;
+      margin-top: 25px;
+      padding: 30px;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, #eef2ff, #ecfeff);
+      border: 1px solid #c7d2fe;
+    }
+
+    .score-card.show {
+      display: block;
+      animation: fadeIn .4s ease;
+    }
+
+    .score-number {
+      font-family: "Poppins", sans-serif;
+      font-size: 3.2rem;
+      color: var(--primary);
+      font-weight: 800;
+      line-height: 1.1;
+      margin: 10px 0;
+    }
+
+    .score-message {
+      margin-bottom: 15px;
+      color: var(--muted);
+    }
+
+    .reflection-note {
+      padding: 15px;
+      margin-top: 12px;
+      border-radius: 12px;
+      background: var(--warning-bg);
+      color: #92400e;
+      font-size: .9rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        width: min(100% - 20px, 1080px);
+      }
+
+      .hero {
+        padding: 38px 0 32px;
+      }
+
+      .concept-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card,
+      .question-card {
+        padding: 19px;
+      }
+
+      .tabs {
+        gap: 5px;
+      }
+
+      .tab-btn {
+        padding: 11px 8px;
+        font-size: .85rem;
+      }
+
+      th, td {
+        padding: 9px;
+        font-size: .88rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="hero">
+    <div class="container hero-content">
+      <div class="badge">📐 MATEMATIKA • FASE E • KELAS 10</div>
+      <h1>Operasi Hitung Bilangan Bentuk Akar</h1>
+      <p class="hero-subtitle">
+        Yuk pahami cara menjumlahkan, mengurangkan, dan mengalikan bentuk akar
+        dengan langkah yang sederhana dan mudah diikuti.
+      </p>
+
+      <div class="hero-info">
+        <span class="info-pill">🎯 Tujuan: Menguasai operasi hitung bentuk akar</span>
+        <span class="info-pill">⏱️ Estimasi: 30–45 menit</span>
+        <span class="info-pill">🧠 Belajar Mandiri</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav-wrap">
+    <div class="container">
+      <div class="tabs">
+        <button class="tab-btn active" onclick="showTab('materi', this)">
+          📖 Materi Bacaan
+        </button>
+        <button class="tab-btn" onclick="showTab('kuis', this)">
+          📝 Kuis Latihan
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- ================= MATERI ================= -->
+    <section id="materi" class="tab-content active">
+
+      <h2 class="section-title">📖 Materi Bacaan</h2>
+      <p class="section-desc">
+        Pelajari konsep berikut secara berurutan sebelum mengerjakan kuis.
+      </p>
+
+      <div class="card">
+        <h3>1. Apa Itu Bentuk Akar?</h3>
+        <p>
+          Bentuk akar adalah bentuk bilangan yang menggunakan simbol akar dan
+          hasilnya tidak dapat dinyatakan sebagai bilangan rasional sederhana.
+          Contohnya adalah √2, √3, √5, dan √7.
+        </p>
+
+        <div class="highlight">
+          <strong>💡 Ingat!</strong><br>
+          Sebelum melakukan operasi hitung, sederhanakan bentuk akar terlebih
+          dahulu jika memungkinkan.
+        </div>
+
+        <p>Contoh:</p>
+        <div class="formula">√12 = √(4 × 3) = √4 × √3 = 2√3</div>
+      </div>
+
+      <div class="card">
+        <h3>2. Menjumlahkan dan Mengurangkan Bentuk Akar</h3>
+        <p>
+          Bentuk akar dapat dijumlahkan atau dikurangkan jika mempunyai
+          <strong>akar sejenis</strong>, yaitu bagian akar yang sama.
+        </p>
+
+        <div class="formula">a√c + b√c = (a + b)√c</div><br>
+        <div class="formula">a√c − b√c = (a − b)√c</div>
+
+        <div class="example">
+          <div class="example-title">Contoh 1 — Penjumlahan</div>
+          <p>
+            3√2 + 5√2 = (3 + 5)√2 = <strong>8√2</strong>
+          </p>
+        </div>
+
+        <div class="example">
+          <div class="example-title">Contoh 2 — Pengurangan</div>
+          <p>
+            7√3 − 2√3 = (7 − 2)√3 = <strong>5√3</strong>
+          </p>
+        </div>
+
+        <div class="highlight">
+          <strong>⚠️ Hati-hati!</strong><br>
+          2√3 + 4√5 tidak dapat langsung dijumlahkan karena √3 dan √5
+          bukan akar sejenis.
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>3. Perkalian Bentuk Akar</h3>
+        <p>
+          Untuk mengalikan bentuk akar, kalikan koefisien dengan koefisien
+          dan bilangan di dalam akar dengan bilangan di dalam akar.
+        </p>
+
+        <div class="formula">√a × √b = √(a × b)</div>
+        <br>
+        <div class="formula">(a√b)(c√d) = ac√(bd)</div>
+
+        <div class="example">
+          <div class="example-title">Contoh 3</div>
+          <p>
+            2√3 × 4√5
+          </p>
+          <p>
+            = (2 × 4)√(3 × 5)
+          </p>
+          <p>
+            = 8√15
+          </p>
+        </div>
+
+        <div class="example">
+          <div class="example-title">Contoh 4 — Sederhanakan hasil</div>
+          <p>
+            √6 × √24 = √144 = <strong>12</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>4. Langkah Cepat Menyelesaikan Soal</h3>
+
+        <ol class="steps">
+          <li>Perhatikan bentuk akar yang diberikan.</li>
+          <li>Sederhanakan akar jika masih dapat disederhanakan.</li>
+          <li>Untuk penjumlahan/pengurangan, kelompokkan akar sejenis.</li>
+          <li>Untuk perkalian, kalikan koefisien dan bagian akarnya.</li>
+          <li>Sederhanakan kembali hasil akhirnya.</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <h3>5. Ringkasan Konsep</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Operasi</th>
+              <th>Aturan</th>
+              <th>Contoh</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Penjumlahan</td>
+              <td>Hanya akar sejenis yang dapat dijumlahkan.</td>
+              <td>2√5 + 3√5 = 5√5</td>
+            </tr>
+            <tr>
+              <td>Pengurangan</td>
+              <td>Hanya akar sejenis yang dapat dikurangkan.</td>
+              <td>6√2 − 4√2 = 2√2</td>
+            </tr>
+            <tr>
+              <td>Perkalian</td>
+              <td>Kalikan koefisien dan bagian akar.</td>
+              <td>2√3 × 3√2 = 6√6</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card fun-fact">
+        <h3>🌟 Hubungkan dengan Kehidupan Sehari-hari</h3>
+        <p>
+          Bentuk akar dapat muncul ketika kita menghitung panjang diagonal
+          persegi atau jarak pada bidang koordinat. Misalnya, sebuah persegi
+          dengan sisi 1 satuan memiliki diagonal:
+        </p>
+
+        <div class="formula">d = √(1² + 1²) = √2</div>
+
+        <p>
+          Jadi, konsep bentuk akar ternyata dapat membantu kita menentukan
+          jarak dan ukuran dalam situasi nyata.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🧩 Tantangan Mini</h3>
+        <p>
+          Coba pikirkan tanpa menghitung dengan kalkulator:
+        </p>
+        <div class="highlight">
+          Jika sebuah persegi memiliki panjang sisi 3 cm, berapakah panjang
+          diagonalnya dalam bentuk akar?
+        </div>
+        <p>
+          <strong>Petunjuk:</strong> Gunakan Teorema Pythagoras:
+          d² = 3² + 3².
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ================= KUIS ================= -->
+    <section id="kuis" class="tab-content">
+
+      <h2 class="section-title">📝 Kuis Latihan</h2>
+      <p class="section-desc">
+        Kerjakan setiap soal. Setelah memilih jawaban, pembahasan akan langsung
+        muncul. Untuk soal reflektif, tuliskan jawabanmu sendiri.
+      </p>
+
+      <div class="progress-container">
+        <div class="progress-label">
+          <span>Progress pengerjaan</span>
+          <span id="progressText">0 / 5</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+
+      <!-- SOAL 1 -->
+      <div class="question-card" data-question="1">
+        <span class="question-number">Soal 1 • Pilihan Ganda</span>
+        <p class="question-text">
+          Hasil dari 3√2 + 5√2 adalah ...
+        </p>
+
+        <div class="options">
+          <button class="option" onclick="checkAnswer(1, this, false)">
+            <span class="option-letter">A</span> 8√4
+          </button>
+          <button class="option" onclick="checkAnswer(1, this, true)">
+            <span class="option-letter">B</span> 8√2
+          </button>
+          <button class="option" onclick="checkAnswer(1, this, false)">
+            <span class="option-letter">C</span> 15√2
+          </button>
+          <button class="option" onclick="checkAnswer(1, this, false)">
+            <span class="option-letter">D</span> 8√3
+          </button>
+        </div>
+
+        <div id="feedback1" class="feedback"></div>
+      </div>
+
+      <!-- SOAL 2 -->
+      <div class="question-card" data-question="2">
+        <span class="question-number">Soal 2 • Pilihan Ganda</span>
+        <p class="question-text">
+          Hasil dari 7√3 − 2√3 adalah ...
+        </p>
+
+        <div class="options">
+          <button class="option" onclick="checkAnswer(2, this, false)">
+            <span class="option-letter">A</span> 5√6
+          </button>
+          <button class="option" onclick="checkAnswer(2, this, false)">
+            <span class="option-letter">B</span> 9√3
+          </button>
+          <button class="option" onclick="checkAnswer(2, this, true)">
+            <span class="option-letter">C</span> 5√3
+          </button>
+          <button class="option" onclick="checkAnswer(2, this, false)">
+            <span class="option-letter">D</span> 5√2
+          </button>
+        </div>
+
+        <div id="feedback2" class="feedback"></div>
+      </div>
+
+      <!-- SOAL 3 -->
+      <div class="question-card" data-question="3">
+        <span class="question-number">Soal 3 • Pilihan Ganda</span>
+        <p class="question-text">
+          Hasil dari 2√3 × 4√5 adalah ...
+        </p>
+
+        <div class="options">
+          <button class="option" onclick="checkAnswer(3, this, false)">
+            <span class="option-letter">A</span> 6√15
+          </button>
+          <button class="option" onclick="checkAnswer(3, this, true)">
+            <span class="option-letter">B</span> 8√15
+          </button>
+          <button class="option" onclick="checkAnswer(3, this, false)">
+            <span class="option-letter">C</span> 8√8
+          </button>
+          <button class="option" onclick="checkAnswer(3, this, false)">
+            <span class="option-letter">D</span> 12√5
+          </button>
+        </div>
+
+        <div id="feedback3" class="feedback"></div>
+      </div>
+
+      <!-- SOAL 4 -->
+      <div class="question-card" data-question="4">
+        <span class="question-number">Soal 4 • Pilihan Ganda</span>
+        <p class="question-text">
+          Bentuk sederhana dari √12 + √27 adalah ...
+        </p>
+
+        <div class="options">
+          <button class="option" onclick="checkAnswer(4, this, false)">
+            <span class="option-letter">A</span> 5√3
+          </button>
+          <button class="option" onclick="checkAnswer(4, this, true)">
+            <span class="option-letter">B</span> 5√3
+          </button>
+          <button class="option" onclick="checkAnswer(4, this, false)">
+            <span class="option-letter">C</span> 7√3
+          </button>
+          <button class="option" onclick="checkAnswer(4, this, false)">
+            <span class="option-letter">D</span> √39
+          </button>
+        </div>
+
+        <div id="feedback4" class="feedback"></div>
+      </div>
+
+      <!-- SOAL 5 -->
+      <div class="question-card" data-question="5">
+        <span class="question-number">Soal 5 • Reflektif</span>
+        <p class="question-text">
+          Jelaskan dengan singkat mengapa 2√3 + 4√5 tidak dapat langsung
+          disederhanakan menjadi 6√8.
+        </p>
+
+        <textarea
+          id="reflection5"
+          class="answer-input"
+          placeholder="Tuliskan alasanmu di sini..."
+          oninput="updateProgress()"></textarea>
+
+        <div class="reflection-note">
+          💡 Petunjuk: Perhatikan apakah √3 dan √5 merupakan akar sejenis.
+        </div>
+
+        <div id="feedback5" class="feedback"></div>
+      </div>
+
+      <div class="quiz-actions">
+        <button class="btn btn-primary" onclick="checkReflection()">
+          🔎 Cek Jawaban Reflektif
+        </button>
+
+        <button class="btn btn-secondary" onclick="calculateScore()">
+          🏆 Lihat Nilai Akhir
+        </button>
+
+        <button class="btn btn-secondary" onclick="resetQuiz()">
+          🔄 Ulangi Kuis
+        </button>
+      </div>
+
+      <div id="scoreCard" class="score-card">
+        <div>🎉 Hasil Belajarmu</div>
+        <div class="score-number" id="scoreNumber">0</div>
+        <p class="score-message" id="scoreMessage"></p>
+        <p id="scoreDetail"></p>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <p>📚 Bahan Ajar Interaktif Matematika • Operasi Hitung Bilangan Bentuk Akar</p>
+    <p>Belajar sedikit demi sedikit, pahami konsep, lalu berlatih. 💪</p>
+  </footer>
+
+  <script>
+    const answered = {
+      1: false,
+      2: false,
+      3: false,
+      4: false,
+      5: false
+    };
+
+    const scores = {
+      1: false,
+      2: false,
+      3: false,
+      4: false,
+      5: false
+    };
+
+    function showTab(tabId, button) {
+      document.querySelectorAll(".tab-content").forEach(tab => {
+        tab.classList.remove("active");
+      });
+
+      document.querySelectorAll(".tab-btn").forEach(btn => {
+        btn.classList.remove("active");
+      });
+
+      document.getElementById(tabId).classList.add("active");
+      button.classList.add("active");
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    function checkAnswer(question, selected, isCorrect) {
+      if (answered[question]) return;
+
+      answered[question] = true;
+      scores[question] = isCorrect;
+
+      const card = document.querySelector(
+        `.question-card[data-question="${question}"]`
+      );
+
+      const options = card.querySelectorAll(".option");
+
+      options.forEach(option => {
+        option.classList.add("disabled");
+      });
+
+      if (isCorrect) {
+        selected.classList.add("correct");
+      } else {
+        selected.classList.add("wrong");
+
+        options.forEach(option => {
+          const text = option.textContent.trim();
+
+          if (
+            (question === 1 && text.includes("8√2")) ||
+            (question === 2 && text.includes("5√3")) ||
+            (question === 3 && text.includes("8√15")) ||
+            (question === 4 && text.includes("5√3"))
+          ) {
+            option.classList.add("correct");
+          }
+        });
+      }
+
+      const feedback = document.getElementById(`feedback${question}`);
+      feedback.classList.add("show");
+
+      const explanations = {
+        1: {
+          correct: "Benar! Karena √2 merupakan akar sejenis, koefisiennya dapat dijumlahkan: (3 + 5)√2 = 8√2.",
+          wrong: "Belum tepat. √2 tetap dipertahankan dan koefisiennya dijumlahkan: 3√2 + 5√2 = (3 + 5)√2 = 8√2."
+        },
+        2: {
+          correct: "Benar! Akar √3 sejenis, sehingga 7√3 − 2√3 = (7 − 2)√3 = 5√3.",
+          wrong: "Belum tepat. Kurangkan koefisien karena √3 pada kedua suku sama: (7 − 2)√3 = 5√3."
+        },
+        3: {
+          correct: "Benar! Kalikan koefisien: 2 × 4 = 8, lalu kalikan bagian akar: √3 × √5 = √15. Jadi hasilnya 8√15.",
+          wrong: "Belum tepat. Gunakan (a√b)(c√d) = ac√bd. Jadi (2√3)(4√5) = 8√15."
+        },
+        4: {
+          correct: "Benar! √12 = 2√3 dan √27 = 3√3. Jadi 2√3 + 3√3 = 5√3.",
+          wrong: "Belum tepat. Sederhanakan dahulu: √12 = 2√3 dan √27 = 3√3. Maka hasilnya 5√3."
+        }
+      };
+
+      feedback.className = `feedback show ${isCorrect ? "correct" : "wrong"}`;
+      feedback.innerHTML =
+        `<strong>${isCorrect ? "✅ Benar!" : "❌ Belum tepat."}</strong><br>` +
+        explanations[question][isCorrect ? "correct" : "wrong"];
+
+      updateProgress();
+    }
+
+    function checkReflection() {
+      const input = document.getElementById("reflection5");
+      const feedback = document.getElementById("feedback5");
+      const answer = input.value.trim().toLowerCase();
+
+      if (!answer) {
+        feedback.className = "feedback show wrong";
+        feedback.innerHTML =
+          "<strong>✏️ Jawaban masih kosong.</strong><br>" +
+          "Coba jelaskan apakah √3 dan √5 merupakan akar sejenis.";
+        return;
+      }
+
+      answered[5] = true;
+
+      const keywords = [
+        "tidak sejenis",
+        "bukan akar sejenis",
+        "akar sejenis",
+        "berbeda",
+        "√3",
+        "√5"
+      ];
+
+      const matched = keywords.filter(word => answer.includes(word)).length;
+
+      if (matched >= 2) {
+        scores[5] = true;
+        feedback.className = "feedback show correct";
+        feedback.innerHTML =
+          "<strong>🌟 Jawabanmu sudah tepat!</strong><br>" +
+          "√3 dan √5 bukan akar sejenis karena bagian dalam akarnya berbeda. " +
+          "Oleh karena itu, keduanya tidak dapat langsung dijumlahkan menjadi 6√8.";
+      } else {
+        scores[5] = false;
+        feedback.className = "feedback show wrong";
+        feedback.innerHTML =
+          "<strong>💡 Coba periksa lagi.</strong><br>" +
+          "Petunjuk: penjumlahan bentuk akar hanya dapat dilakukan secara " +
+          "langsung jika akar yang dijumlahkan sejenis, misalnya 2√3 + 4√3.";
+      }
+
+      updateProgress();
+    }
+
+    function updateProgress() {
+      let totalAnswered = 0;
+
+      for (let i = 1; i <= 5; i++) {
+        if (answered[i]) totalAnswered++;
+      }
+
+      const percentage = (totalAnswered / 5) * 100;
+
+      document.getElementById("progressText").textContent =
+        `${totalAnswered} / 5`;
+
+      document.getElementById("progressFill").style.width =
+        `${percentage}%`;
+    }
+
+    function calculateScore() {
+      let totalCorrect = 0;
+      let totalAnswered = 0;
+
+      for (let i = 1; i <= 5; i++) {
+        if (answered[i]) {
+          totalAnswered++;
+          if (scores[i]) totalCorrect++;
+        }
+      }
+
+      if (totalAnswered < 5) {
+        alert(
+          `Kamu baru mengerjakan ${totalAnswered} dari 5 soal. ` +
+          "Selesaikan semua soal terlebih dahulu untuk melihat nilai akhir."
+        );
+        return;
+      }
+
+      const score = Math.round((totalCorrect / 5) * 100);
+
+      document.getElementById("scoreNumber").textContent = score;
+      document.getElementById("scoreDetail").textContent =
+        `${totalCorrect} dari 5 soal mendapatkan poin.`;
+
+      let message = "";
+
+      if (score >= 90) {
+        message =
+          "🏆 Luar biasa! Pemahamanmu tentang operasi bentuk akar sangat baik.";
+      } else if (score >= 75) {
+        message =
+          "👏 Bagus! Kamu sudah memahami konsep utama. Terus berlatih agar semakin mantap.";
+      } else if (score >= 60) {
+        message =
+          "💪 Cukup baik! Coba pelajari kembali bagian yang masih membingungkan.";
+      } else {
+        message =
+          "🌱 Jangan menyerah! Baca kembali materi dan coba kerjakan kuis sekali lagi.";
+      }
+
+      document.getElementById("scoreMessage").textContent = message;
+      document.getElementById("scoreCard").classList.add("show");
+
+      document.getElementById("scoreCard").scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    }
+
+    function resetQuiz() {
+      if (!confirm("Yakin ingin mengulang seluruh kuis?")) return;
+
+      for (let i = 1; i <= 5; i++) {
+        answered[i] = false;
+        scores[i] = false;
+
+        const card = document.querySelector(
+          `.question-card[data-question="${i}"]`
+        );
+
+        if (card) {
+          card.querySelectorAll(".option").forEach(option => {
+            option.classList.remove("correct", "wrong", "disabled");
+          });
+        }
+
+        const feedback = document.getElementById(`feedback${i}`);
+
+        if (feedback) {
+          feedback.className = "feedback";
+          feedback.innerHTML = "";
+        }
+      }
+
+      document.getElementById("reflection5").value = "";
+      document.getElementById("scoreCard").classList.remove("show");
+
+      updateProgress();
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    updateProgress();
+  </script>
+
+</body>
+</html>
